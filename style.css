@@ -1,0 +1,98 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1, h2 {
+  margin: 15px 0;
+}
+
+/* Part 1: Transitions */
+.btn-hover {
+  padding: 10px 20px;
+  background: teal;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.5s, transform 0.3s;
+}
+
+.btn-hover:hover {
+  background: darkcyan;
+  transform: scale(1.1);
+}
+
+/* CSS keyframe animation */
+.box.animate {
+  margin: 20px auto;
+  width: 150px;
+  height: 150px;
+  background: coral;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Part 3: JS Controlled Box */
+#jsBox {
+  margin: 20px auto;
+  width: 150px;
+  height: 150px;
+  background: steelblue;
+  transition: transform 0.6s, background 0.6s;
+}
+
+#jsBox.active {
+  transform: rotate(360deg) scale(1.2);
+  background: darkblue;
+}
+
+/* Card flip animation */
+.card {
+  perspective: 1000px;
+  width: 200px;
+  height: 120px;
+  margin: 20px auto;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  border: 2px solid #333;
+  border-radius: 8px;
+}
+
+.card-front {
+  background: lightseagreen;
+  color: white;
+}
+
+.card-back {
+  background: tomato;
+  color: white;
+  transform: rotateY(180deg);
+}
